@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sérénité — Ta routine soir, sublimée</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================
+       VARIABLES & RESET
+    ============================================ */
+    :root {
+      --cream:     #FAF6F0;
+      --sand:      #EDE4D6;
+      --mocha:     #C4A882;
+      --espresso:  #5C3D2E;
+      --midnight:  #1A1612;
+      --blush:     #E8C9B0;
+      --sage:      #9DAF8E;
+      --text:      #2C1F14;
+      --muted:     #8C7B6B;
+      --white:     #FFFFFF;
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'DM Sans', system-ui, sans-serif;
+
+      --radius-sm: 4px;
+      --radius-md: 12px;
+      --radius-lg: 24px;
+      --radius-pill: 999px;
+
+      --shadow-soft: 0 4px 32px rgba(92,61,46,0.08);
+      --shadow-card: 0 2px 16px rgba(92,61,46,0.10);
+      --shadow-hover: 0 8px 40px rgba(92,61,46,0.16);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--cream);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ============================================
+       UTILITY
+    ============================================ */
+    .container {
+      width: min(1200px, 92%);
+      margin-inline: auto;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--espresso);
+      background: var(--sand);
+      border: 1px solid var(--mocha);
+      padding: 6px 16px;
+      border-radius: var(--radius-pill);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--espresso);
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--mocha);
+    }
+
+    /* ============================================
+       ANNOUNCEMENT BAR
+    ============================================ */
+    .announcement-bar {
+      background: var(--espresso);
+      color: var(--cream);
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      font-family: var(--font-body);
+    }
+
+    /* ============================================
+       NAVIGATION
+    ============================================ */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250,246,240,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--sand);
+      padding: 18px 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--espresso);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-logo span {
+      color: var(--mocha);
+      font-style: italic;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--espresso); }
+
+    .nav-cta {
+      background: var(--espresso);
+      color: var(--cream) !important;
+      padding: 10px 22px;
+      border-radius: var(--radius-pill);
+      font-size: 0.8rem !important;
+      letter-spacing: 0.08em !important;
+      transition: background 0.2s, transform 0.2s !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--midnight) !important;
+      transform: translateY(-1px);
+    }
+
+    /* ============================================
+       HERO
+    ============================================ */
+    .hero {
+      min-height: 92vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(196,168,130,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      animation: fadeUp 0.9s ease both;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .hero-eyebrow-line {
+      width: 40px;
+      height: 1px;
+      background: var(--mocha);
+    }
+
+    .hero-eyebrow-text {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--mocha);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 300;
+      line-height: 1.08;
+      color: var(--espresso);
+      margin-bottom: 28px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--mocha);
+      display: block;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 440px;
+      line-height: 1.75;
+      margin-bottom: 44px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--espresso);
+      color: var(--cream);
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      padding: 16px 34px;
+      border-radius: var(--radius-pill);
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      text-transform: uppercase;
+    }
+
+    .btn-primary:hover {
+      background: var(--midnight);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(92,61,46,0.28);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: var(--espresso);
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid var(--mocha);
+      padding-bottom: 2px;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover { color: var(--mocha); }
+
+    .hero-trust {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-top: 52px;
+      padding-top: 36px;
+      border-top: 1px solid var(--sand);
+    }
+
+    .trust-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .trust-number {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--espresso);
+      line-height: 1;
+    }
+
+    .trust-label {
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .trust-divider {
+      width: 1px;
+      height: 36px;
+      background: var(--sand);
+    }
+
+    /* Hero Visual */
+    .hero-visual {
+      position: relative;
+      z-index: 2;
+      animation: fadeUp 0.9s 0.2s ease both;
+    }
+
+    .hero-img-wrapper {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      background: var(--sand);
+    }
+
+    .hero-img-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--sand) 0%, var(--blush) 50%, var(--mocha) 100%);
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: var(--espresso);
+      font-style: italic;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .hero-img-badge {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      background: rgba(250,246,240,0.95);
+      backdrop-filter: blur(8px);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .hero-img-badge-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--espresso);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .hero-img-badge-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-img-badge-title {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--espresso);
+    }
+
+    .hero-img-badge-sub {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .hero-floating-tag {
+      position: absolute;
+      top: 28px;
+      right: -16px;
+      background: var(--espresso);
+      color: var(--cream);
+      padding: 10px 18px;
+      border-radius: var(--radius-md);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ============================================
+       BRAND BAR
+    ============================================ */
+    .brand-bar {
+      background: var(--sand);
+      padding: 28px 0;
+      border-top: 1px solid rgba(196,168,130,0.3);
+      border-bottom: 1px solid rgba(196,168,130,0.3);
+    }
+
+    .brand-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .brand-bar-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .brand-logos {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .brand-logo-item {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--espresso);
+      opacity: 0.6;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+    }
+
+    /* ============================================
+       SECTION — POURQUOI
+    ============================================ */
+    .why-section {
+      padding: 110px 0;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .why-visual {
+      position: relative;
+    }
+
+    .why-img-main {
+      border-radius: var(--radius-lg);
+      aspect-ratio: 3/4;
+      background: linear-gradient(180deg, var(--blush) 0%, var(--mocha) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-style: italic;
+      color: var(--cream);
+      font-size: 1.1rem;
+    }
+
+    .why-img-inset {
+      position: absolute;
+      bottom: -30px;
+      right: -30px;
+      width: 55%;
+      aspect-ratio: 1;
+      border-radius: var(--radius-md);
+      background: var(--sand);
+      border: 6px solid var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      box-shadow: var(--shadow-card);
+    }
+
+    .why-content {
+      padding-bottom: 30px;
+    }
+
+    .why-content .badge { margin-bottom: 20px; }
+
+    .why-content .section-title { margin-bottom: 24px; }
+
+    .why-lead {
+      font-size: 1.05rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+
+    .why-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .why-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px 24px;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--sand);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .why-item:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+
+    .why-item-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .why-item-text strong {
+      display: block;
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--espresso);
+      margin-bottom: 4px;
+    }
+
+    .why-item-text span {
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    /* ============================================
+       SECTION — PRODUITS VEDETTES
+    ============================================ */
+    .products-section {
+      padding: 110px 0;
+      background: var(--white);
+    }
+
+    .products-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .products-header .badge { margin-bottom: 16px; }
+
+    .products-header .section-title { margin-bottom: 16px; }
+
+    .products-header p {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin-inline: auto;
+    }
+
+    .products-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 10px 24px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--sand);
+      background: transparent;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 0.04em;
+    }
+
+    .tab-btn.active,
+    .tab-btn:hover {
+      background: var(--espresso);
+      color: var(--cream);
+      border-color: var(--espresso);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 28px;
+    }
+
+    .product-card {
+      background: var(--cream);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--sand);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .product-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-4px);
+    }
+
+    .product-card-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      z-index: 2;
+      background: var(--espresso);
+      color: var(--cream);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+    }
+
+    .product-card-badge.badge-sale {
+      background: #C0392B;
+    }
+
+    .product-card-badge.badge-new {
+      background: var(--sage);
+      color: var(--espresso);
+    }
+
+    .product-card-img {
+      width: 100%;
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, var(--sand) 0%, var(--blush) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-card-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 60%, rgba(92,61,46,0.06));
+    }
+
+    .product-card-body {
+      padding: 22px 24px 28px;
+    }
+
+    .product-card-category {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mocha);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .product-card-name {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--espresso);
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .product-card-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .product-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .product-price {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-price-current {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--espresso);
+      line-height: 1;
+    }
+
+    .product-price-original {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: line-through;
+    }
+
+    .product-card-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--espresso);
+      color: var(--cream);
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 11px 20px;
+      border-radius: var(--radius-pill);
+      letter-spacing: 0.04em;
+      transition: all 0.2s;
+      white-space: nowrap;
+      border: none;
+      cursor: pointer;
+    }
+
+    .product-card-btn:hover {
+      background: var(--midnight);
+      transform: translateY(-1px);
+    }
+
+    /* Stars */
+    .product-stars {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 16px;
+    }
+
+    .stars {
+      color: var(--mocha);
+      font-size: 0.9rem;
+    }
+
+    .review-count {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    /* ============================================
+       SECTION — RITUEL
+    ============================================ */
+    .ritual-section {
+      padding: 110px 0;
+      background: var(--espresso);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ritual-section::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: rgba(196,168,130,0.08);
+      top: -200px;
+      right: -100px;
+      pointer-events: none;
+    }
+
+    .ritual-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .ritual-content .badge {
+      background: rgba(196,168,130,0.2);
+      border-color: rgba(196,168,130,0.4);
+      color: var(--mocha);
+      margin-bottom: 20px;
+    }
+
+    .ritual-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--cream);
+      margin-bottom: 20px;
+    }
+
+    .ritual-title em {
+      font-style: italic;
+      color: var(--mocha);
+    }
+
+    .ritual-desc {
+      font-size: 1rem;
+      color: rgba(250,246,240,0.65);
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+
+    .ritual-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .ritual-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(196,168,130,0.15);
+    }
+
+    .ritual-step:last-child { border-bottom: none; }
+
+    .ritual-step-num {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--mocha);
+      line-height: 1;
+      min-width: 32px;
+    }
+
+    .ritual-step-content strong {
+      display: block;
+      color: var(--cream);
+      font-size: 0.92rem;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .ritual-step-content span {
+      font-size: 0.84rem;
+      color: rgba(250,246,240,0.55);
+    }
+
+    .ritual-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 16px;
+      height: 480px;
+    }
+
+    .ritual-img-card {
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      background: rgba(196,168,130,0.12);
+      border: 1px solid rgba(196,168,130,0.2);
+    }
+
+    .ritual-img-card:first-child {
+      grid-column: span 2;
+      font-size: 3rem;
+    }
+
+    /* ============================================
+       SECTION — TEMOIGNAGES
+    ============================================ */
+    .reviews-section {
+      padding: 110px 0;
+      background: var(--sand);
+    }
+
+    .reviews-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .reviews-header .badge { margin-bottom: 16px; }
+
+    .reviews-header .section-title { margin-bottom: 12px; }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .review-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      border: 1px solid rgba(196,168,130,0.2);
+      transition: all 0.2s;
+    }
+
+    .review-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-3px);
+    }
+
+    .review-stars { color: var(--mocha); font-size: 1rem; margin-bottom: 16px; }
+
+    .review-text {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--espresso);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .review-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--mocha), var(--blush));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cream);
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    .review-author-info strong {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--espresso);
+    }
+
+    .review-author-info span {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* ============================================
+       NEWSLETTER / CTA SECTION
+    ============================================ */
+    .cta-section {
+      padding: 110px 0;
+      background: var(--cream);
+    }
+
+    .cta-box {
+      background: var(--espresso);
+      border-radius: var(--radius-lg);
+      padding: 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-box::before {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: rgba(196,168,130,0.08);
+      top: -100px;
+      left: -100px;
+      pointer-events: none;
+    }
+
+    .cta-box::after {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: rgba(196,168,130,0.06);
+      bottom: -80px;
+      right: -60px;
+      pointer-events: none;
+    }
+
+    .cta-box-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-box .badge {
+      background: rgba(196,168,130,0.2);
+      border-color: rgba(196,168,130,0.4);
+      color: var(--mocha);
+      margin-bottom: 24px;
+    }
+
+    .cta-box-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .cta-box-title em {
+      font-style: italic;
+      color: var(--mocha);
+    }
+
+    .cta-box-desc {
+      font-size: 1rem;
+      color: rgba(250,246,240,0.65);
+      max-width: 480px;
+      margin-inline: auto;
+      line-height: 1.75;
+      margin-bottom: 40px;
+    }
+
+    .cta-form {
+      display: flex;
+      gap: 12px;
+      max-width: 460px;
+      margin-inline: auto;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .cta-input {
+      flex: 1;
+      min-width: 220px;
+      padding: 15px 24px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(196,168,130,0.3);
+      background: rgba(250,246,240,0.08);
+      color: var(--cream);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border 0.2s;
+    }
+
+    .cta-input::placeholder { color: rgba(250,246,240,0.4); }
+
+    .cta-input:focus { border-color: var(--mocha); }
+
+    .cta-submit {
+      background: var(--mocha);
+      color: var(--espresso);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 15px 28px;
+      border-radius: var(--radius-pill);
+      border: none;
+      cursor: pointer;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: all 0.2s;
+    }
+
+    .cta-submit:hover {
+      background: var(--cream);
+      transform: translateY(-2px);
+    }
+
+    /* ============================================
+       FOOTER
+    ============================================ */
+    .footer {
+      background: var(--midnight);
+      padding: 60px 0 36px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 32px;
+    }
+
+    .footer-brand .nav-logo {
+      color: var(--cream);
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .footer-brand p {
+      font-size: 0.85rem;
+      color: rgba(250,246,240,0.45);
+      line-height: 1.75;
+      max-width: 280px;
+    }
+
+    .footer-col h4 {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--mocha);
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col ul li a {
+      font-size: 0.84rem;
+      color: rgba(250,246,240,0.45);
+      transition: color 0.2s;
+    }
+
+    .footer-col ul li a:hover { color: var(--cream); }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-bottom p {
+      font-size: 0.78rem;
+      color: rgba(250,246,240,0.3);
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-legal a {
+      font-size: 0.78rem;
+      color: rgba(250,246,240,0.3);
+      transition: color 0.2s;
+    }
+
+    .footer-legal a:hover { color: var(--cream); }
+
+    /* ============================================
+       ANIMATIONS
+    ============================================ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ============================================
+       RESPONSIVE
+    ============================================ */
+    @media (max-width: 900px) {
+      .hero, .why-grid, .ritual-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .hero-visual { order: -1; }
+      .hero-img-wrapper { aspect-ratio: 16/9; }
+      .hero-floating-tag { display: none; }
+
+      .why-img-inset { display: none; }
+
+      .reviews-grid { grid-template-columns: 1fr; }
+
+      .footer-top { grid-template-columns: 1fr 1fr; }
+
+      .ritual-visual { height: 300px; }
+
+      .cta-box { padding: 48px 32px; }
+
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      .hero { padding: 48px 0; min-height: auto; }
+      .hero-trust { flex-wrap: wrap; gap: 16px; }
+      .footer-top { grid-template-columns: 1fr; }
+      .products-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar">
+    ✨ Livraison gratuite dès 35€ · Produits sélectionnés pour ta routine soir
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo">Séré<span>nité</span></a>
+        <ul class="nav-links">
+          <li><a href="#produits">Nos sélections</a></li>
+          <li><a href="#rituel">Le rituel</a></li>
+          <li><a href="#avis">Avis</a></li>
+          <li><a href="#produits" class="nav-cta">Découvrir →</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container" style="display:contents;">
+      <div style="padding-left: max(4vw, calc((100% - 1200px)/2 + 4vw)); padding-right: 40px; display:flex; align-items:center;">
+        <div class="hero-content">
+          <div class="hero-eyebrow">
+            <div class="hero-eyebrow-line"></div>
+            <span class="hero-eyebrow-text">Ta routine soir, sublimée</span>
+          </div>
+
+          <h1 class="hero-title">
+            Transforme tes soirées
+            <em>en rituel sacré</em>
+          </h1>
+
+          <p class="hero-subtitle">
+            Des produits bien-être & sleep soigneusement sélectionnés pour t'aider à décompresser, te ressourcer et retrouver un sommeil profond. Chaque soir, sans effort.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#produits" class="btn-primary">
+              Voir les produits
+              <span>→</span>
+            </a>
+            <a href="#rituel" class="btn-secondary">
+              Découvrir le rituel
+              <span>↓</span>
+            </a>
+          </div>
+
+          <div class="hero-trust">
+            <div class="trust-item">
+              <span class="trust-number">+2 400</span>
+              <span class="trust-label">Produits testés</span>
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-item">
+              <span class="trust-number">4.9/5</span>
+              <span class="trust-label">Avis clients</span>
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-item">
+              <span class="trust-number">100%</span>
+              <span class="trust-label">Coups de cœur</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding-right: max(4vw, calc((100% - 1200px)/2 + 4vw));">
+        <div class="hero-visual">
+          <div class="hero-img-wrapper">
+            <div class="hero-img-placeholder">
+              🌙<br><br>Remplace par ta photo produit<br>ou une image lifestyle bien-être
+            </div>
+
+            <div class="hero-floating-tag">
+              ⭐ Sélection du mois
+            </div>
+
+            <div class="hero-img-badge">
+              <div class="hero-img-badge-icon">🌿</div>
+              <div class="hero-img-badge-text">
+                <span class="hero-img-badge-title">Testé & approuvé</span>
+                <span class="hero-img-badge-sub">Par notre équipe</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRAND BAR -->
+  <div class="brand-bar">
+    <div class="container">
+      <div class="brand-bar-inner">
+        <span class="brand-bar-label">Disponible sur</span>
+        <div class="brand-logos">
+          <span class="brand-logo-item">Amazon</span>
+          <span class="brand-logo-item">Temu</span>
+          <span class="brand-logo-item">Shein</span>
+          <span class="brand-logo-item">Zalando</span>
+          <span class="brand-logo-item">Cdiscount</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POURQUOI NOUS -->
+  <section class="why-section">
+    <div class="container">
+      <div class="why-grid">
+        <div class="why-visual">
+          <div class="why-img-main">Photo lifestyle routine soir</div>
+          <div class="why-img-inset">🌙</div>
+        </div>
+
+        <div class="why-content">
+          <span class="badge">Notre philosophie</span>
+          <h2 class="section-title">On a tout testé<br><em>pour toi</em></h2>
+          <p class="why-lead">
+            Parce que tu mérites de finir ta journée dans la douceur, sans passer des heures à chercher les bons produits. On sélectionne, on teste, on ne garde que le meilleur.
+          </p>
+
+          <div class="why-list">
+            <div class="why-item">
+              <span class="why-item-icon">🔍</span>
+              <div class="why-item-text">
+                <strong>Sélection rigoureuse</strong>
+                <span>Chaque produit est évalué sur sa qualité, ses avis et son rapport qualité-prix avant d'apparaître ici.</span>
+              </div>
+            </div>
+
+            <div class="why-item">
+              <span class="why-item-icon">💸</span>
+              <div class="why-item-text">
+                <strong>Meilleurs prix garantis</strong>
+                <span>On compare en permanence les prix sur toutes les plateformes pour t'orienter vers la meilleure offre du moment.</span>
+              </div>
+            </div>
+
+            <div class="why-item">
+              <span class="why-item-icon">🌙</span>
+              <div class="why-item-text">
+                <strong>Pensé pour les femmes actives</strong>
+                <span>Des produits qui s'intègrent à ta vie, pas l'inverse. Simples, efficaces, plaisants.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUITS VEDETTES -->
+  <section class="products-section" id="produits">
+    <div class="container">
+      <div class="products-header">
+        <span class="badge">Nos coups de cœur</span>
+        <h2 class="section-title">La sélection <em>du moment</em></h2>
+        <p>Produits testés, approuvés et adorés par notre communauté.</p>
+      </div>
+
+      <div class="products-tabs">
+        <button class="tab-btn active">Tout voir</button>
+        <button class="tab-btn">Sommeil</button>
+        <button class="tab-btn">Bain & corps</button>
+        <button class="tab-btn">Aromathérapie</button>
+        <button class="tab-btn">Masques & soins</button>
+      </div>
+
+      <div class="products-grid">
+
+        <!-- PRODUIT 1 -->
+        <div class="product-card">
+          <span class="product-card-badge badge-sale">−30%</span>
+          <div class="product-card-img">😴</div>
+          <div class="product-card-body">
+            <div class="product-card-category">Sommeil</div>
+            <h3 class="product-card-name">Masque de nuit en soie naturelle</h3>
+            <div class="product-stars">
+              <span class="stars">★★★★★</span>
+              <span class="review-count">(2 847 avis)</span>
+            </div>
+            <p class="product-card-desc">Bloc toute lumière, protège la peau et les cils. Réglable, ultra-doux, la pièce maîtresse de ta routine.</p>
+            <div class="product-card-footer">
+              <div class="product-price">
+                <span class="product-price-current">12,99€</span>
+                <span class="product-price-original">18,50€</span>
+              </div>
+              <a href="LIEN_AFFILIATION_ICI" target="_blank" rel="noopener" class="product-card-btn">
+                Voir le produit →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRODUIT 2 -->
+        <div class="product-card">
+          <span class="product-card-badge badge-new">Nouveau</span>
+          <div class="product-card-img">🌸</div>
+          <div class="product-card-body">
+            <div class="product-card-category">Aromathérapie</div>
+            <h3 class="product-card-name">Diffuseur ultrasonique brume froide</h3>
+            <div class="product-stars">
+              <span class="stars">★★★★★</span>
+              <span class="review-count">(4 102 avis)</span>
+            </div>
+            <p class="product-card-desc">7 couleurs LED douces, minuterie programmable, silencieux. Transforme ta chambre en cocon en 30 secondes.</p>
+            <div class="product-card-footer">
+              <div class="product-price">
+                <span class="product-price-current">24,95€</span>
+              </div>
+              <a href="LIEN_AFFILIATION_ICI" target="_blank" rel="noopener" class="product-card-btn">
+                Voir le produit →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRODUIT 3 -->
+        <div class="product-card">
+          <div class="product-card-img">🛁</div>
+          <div class="product-card-body">
+            <div class="product-card-category">Bain & corps</div>
+            <h3 class="product-card-name">Set bombes de bain relaxantes</h3>
+            <div class="product-stars">
+              <span class="stars">★★★★☆</span>
+              <span class="review-count">(1 563 avis)</span>
+            </div>
+            <p class="product-card-desc">12 bombes aux huiles essentielles (lavande, camomille, vanille). Peau douce, esprit apaisé, sommeil profond.</p>
+            <div class="product-card-footer">
+              <div class="product-price">
+                <span class="product-price-current">19,90€</span>
+                <span class="product-price-original">27,00€</span>
+              </div>
+              <a href="LIEN_AFFILIATION_ICI" target="_blank" rel="noopener" class="product-card-btn">
+                Voir le produit →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRODUIT 4 -->
+        <div class="product-card">
+          <span class="product-card-badge">Coup de ♥</span>
+          <div class="product-card-img">✨</div>
+          <div class="product-card-body">
+            <div class="product-card-category">Masques & soins</div>
+            <h3 class="product-card-name">Masque tissu hydratant nuit</h3>
+            <div class="product-stars">
+              <span class="stars">★★★★★</span>
+              <span class="review-count">(6 240 avis)</span>
+            </div>
+            <p class="product-card-desc">Acide hyaluronique + collagène. 20 minutes, réveil visage radieux. Idéal à mettre pendant le bain.</p>
+            <div class="product-card-footer">
+              <div class="product-price">
+                <span class="product-price-current">9,99€</span>
+                <span class="product-price-original">14,00€</span>
+              </div>
+              <a href="LIEN_AFFILIATION_ICI" target="_blank" rel="noopener" class="product-card-btn">
+                Voir le produit →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRODUIT 5 -->
+        <div class="product-card">
+          <div class="product-card-img">🕯️</div>
+          <div class="product-card-body">
+            <div class="product-card-category">Ambiance</div>
+            <h3 class="product-card-name">Bougie soja parfumée — Nuit de jasmin</h3>
+            <div class="product-stars">
+              <span class="stars">★★★★★</span>
+              <span class="review-count">(3 890 avis)</span>
+            </div>
+            <p class="product-card-desc">Cire naturelle, mèche en coton, 50h de diffusion. L'odeur qui dit à ton cerveau que c'est l'heure de se poser.</p>
+            <div class="product-card-footer">
+              <div class="product-price">
+                <span class="product-price-current">16,50€</span>
+              </div>
+              <a href="LIEN_AFFILIATION_ICI" target="_blank" rel="noopener" class="product-card-btn">
+                Voir le produit →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRODUIT 6 -->
+        <div class="product-card">
+          <span class="product-card-badge badge-sale">−25%</span>
+          <div class="product-card-img">🧸</div>
+          <div class="product-card-body">
+            <div class="product-card-category">Sommeil</div>
+            <h3 class="product-card-name">Oreiller ergonomique mémoire de forme</h3>
+            <div class="product-stars">
+              <span class="stars">★★★★☆</span>
+              <span class="review-count">(5 122 avis)</span>
+            </div>
+            <p class="product-card-desc">Soutien cervical optimal, housse bambou fraîche au toucher. Fini les réveils avec le cou bloqué.</p>
+            <div class="product-card-footer">
+              <div class="product-price">
+                <span class="product-price-current">34,90€</span>
+                <span class="product-price-original">46,00€</span>
+              </div>
+              <a href="LIEN_AFFILIATION_ICI" target="_blank" rel="noopener" class="product-card-btn">
+                Voir le produit →
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LE RITUEL -->
+  <section class="ritual-section" id="rituel">
+    <div class="container">
+      <div class="ritual-inner">
+
+        <div class="ritual-content">
+          <span class="badge">Notre méthode</span>
+          <h2 class="ritual-title">Le rituel des<br><em>3 heures dorées</em></h2>
+          <p class="ritual-desc">
+            Les 3 heures avant le coucher sont les plus importantes pour la qualité de ton sommeil. On t'a sélectionné un produit pour chaque étape.
+          </p>
+
+          <div class="ritual-steps">
+            <div class="ritual-step">
+              <span class="ritual-step-num">01</span>
+              <div class="ritual-step-content">
+                <strong>21h00 — Décompression sensorielle</strong>
+                <span>Diffuseur d'huiles essentielles, bougie, lumière douce. Tu envoies le signal à ton corps.</span>
+              </div>
+            </div>
+
+            <div class="ritual-step">
+              <span class="ritual-step-num">02</span>
+              <div class="ritual-step-content">
+                <strong>21h30 — Rituel corps & peau</strong>
+                <span>Bain relaxant, masque tissu, crème de nuit. Tu prends soin de toi, c'est tout.</span>
+              </div>
+            </div>
+
+            <div class="ritual-step">
+              <span class="ritual-step-num">03</span>
+              <div class="ritual-step-content">
+                <strong>22h30 — Préparation au sommeil</strong>
+                <span>Masque de nuit, oreiller ergonomique, temperature chambre idéale. Tu t'installes pour plonger.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ritual-visual">
+          <div class="ritual-img-card">🛁</div>
+          <div class="ritual-img-card">🕯️</div>
+          <div class="ritual-img-card">🌿</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TEMOIGNAGES -->
+  <section class="reviews-section" id="avis">
+    <div class="container">
+      <div class="reviews-header">
+        <span class="badge">Elles en parlent</span>
+        <h2 class="section-title">Des vraies femmes,<br><em>de vraies nuits</em></h2>
+      </div>
+
+      <div class="reviews-grid">
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Le masque de soie a complètement changé mes matins. Je me réveille reposée pour la première fois depuis des mois. Je ne pouvais pas croire que c'était si simple."</p>
+          <div class="review-author">
+            <div class="review-avatar">S</div>
+            <div class="review-author-info">
+              <strong>Sarah M.</strong>
+              <span>Paris · Cliente vérifiée</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"J'ai commandé le diffuseur après l'avoir vu ici. Franchement je comprends pas comment je vivais sans. L'odeur de lavande le soir, c'est devenu mon signal pour me détendre."</p>
+          <div class="review-author">
+            <div class="review-avatar">A</div>
+            <div class="review-author-info">
+              <strong>Aïcha B.</strong>
+              <span>Lyon · Cliente vérifiée</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Maman de 3 enfants, j'avais arrêté de prendre soin de moi le soir. Ces produits m'ont redonné envie de m'accorder ce moment. Merci pour la sélection, vraiment."</p>
+          <div class="review-author">
+            <div class="review-avatar">N</div>
+            <div class="review-author-info">
+              <strong>Nadia R.</strong>
+              <span>Bordeaux · Cliente vérifiée</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / NEWSLETTER -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box">
+        <div class="cta-box-inner">
+          <span class="badge">Rejoins la communauté</span>
+          <h2 class="cta-box-title">Les meilleures trouvailles,<br><em>chaque semaine</em></h2>
+          <p class="cta-box-desc">
+            Reçois nos nouvelles sélections, codes promo exclusifs et conseils bien-être directement dans ta boite mail. Zéro spam, 100% coups de cœur.
+          </p>
+
+          <div class="cta-form">
+            <input type="email" class="cta-input" placeholder="ton@email.fr" />
+            <button class="cta-submit">Je veux mes offres →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo">Séré<span>nité</span></a>
+          <p>Ta vitrine bien-être & sleep. Nous sélectionnons les meilleurs produits sur Amazon, Temu et Shein pour que tu n'aies qu'à choisir.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#produits">Nos sélections</a></li>
+            <li><a href="#rituel">Le rituel</a></li>
+            <li><a href="#avis">Avis</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Catégories</h4>
+          <ul>
+            <li><a href="#">Sommeil</a></li>
+            <li><a href="#">Aromathérapie</a></li>
+            <li><a href="#">Bain & corps</a></li>
+            <li><a href="#">Masques & soins</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Infos</h4>
+          <ul>
+            <li><a href="#">À propos</a></li>
+            <li><a href="#">Mentions légales</a></li>
+            <li><a href="#">Politique de confidentialité</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Sérénité. Ce site contient des liens affiliés — nous pouvons percevoir une commission sans frais supplémentaires pour toi.</p>
+        <div class="footer-legal">
+          <a href="#">CGU</a>
+          <a href="#">Confidentialité</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Tab filtering (UI seulement — à connecter à Shopify via Liquid)
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animation = 'fadeUp 0.7s ease both';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.product-card, .review-card, .why-item, .ritual-step').forEach(el => {
+      el.style.opacity = '0';
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
