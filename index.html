@@ -1208,6 +1208,21 @@
       .footer-top { grid-template-columns: 1fr; }
       .products-grid { grid-template-columns: 1fr; }
     }
+
+    /* Photos d'illustration */
+    .product-card-img img, .hero-img-placeholder img, .why-img-main img, .why-img-inset img, .ritual-img-card img {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .hero-img-placeholder, .why-img-main, .why-img-inset, .ritual-img-card { position: relative; overflow: hidden; }
+    .photo-tag {
+      position: absolute; left: 10px; bottom: 10px; z-index: 2;
+      background: rgba(250,246,240,0.88); color: var(--espresso);
+      font-family: var(--font-body); font-size: 0.66rem; letter-spacing: 0.03em;
+      padding: 4px 9px; border-radius: 999px; font-style: normal;
+    }
+    .product-card-model {
+      font-size: 0.74rem; color: var(--muted); margin: -6px 0 14px; line-height: 1.5;
+    }
   </style>
 </head>
 
@@ -1285,7 +1300,7 @@
         <div class="hero-visual">
           <div class="hero-img-wrapper">
             <div class="hero-img-placeholder">
-              🌙<br><br>Remplace par ta photo produit<br>ou une image lifestyle bien-être
+              <img src="https://images.unsplash.com/photo-1602891867080-1d56348202a3?w=1000&auto=format&q=75" alt="Femme emmitouflée dans un plaid avec une tasse chaude"><span class="photo-tag">Photo d'illustration</span>
             </div>
 
             <div class="hero-floating-tag">
@@ -1310,8 +1325,8 @@
     <div class="container">
       <div class="why-grid">
         <div class="why-visual">
-          <div class="why-img-main">Photo lifestyle routine soir</div>
-          <div class="why-img-inset">🌙</div>
+          <div class="why-img-main"><img src="https://images.unsplash.com/photo-1703783010857-9bd7a7b97c50?w=800&auto=format&q=75" alt="Chambre douce éclairée le soir" loading="lazy"></div>
+          <div class="why-img-inset"><img src="https://images.unsplash.com/photo-1516874195056-d83a2cac03a4?w=500&auto=format&q=75" alt="Bougies allumées" loading="lazy"></div>
         </div>
 
         <div class="why-content">
@@ -1357,7 +1372,7 @@
       <div class="products-header">
         <span class="badge">Nos coups de cœur</span>
         <h2 class="section-title">La sélection <em>douceur</em></h2>
-        <p>Des objets bien notés, choisis pour leur douceur et leur simplicité. Les prix et les avis sont à jour directement sur Amazon.</p>
+        <p>Des objets bien notés, choisis pour leur douceur et leur simplicité. Les photos sont des illustrations d'ambiance : le modèle exact, ses photos, son prix et ses avis sont sur Amazon.</p>
       </div>
 
       <div class="products-tabs">
@@ -1370,11 +1385,12 @@
 
       <div class="products-grid">
         <div class="product-card" data-cat="cocooning">
-          <div class="product-card-img">😴</div>
+          <div class="product-card-img"><img src="https://images.unsplash.com/photo-1687435703153-88f6bc0cdcff?w=600&h=600&fit=crop&auto=format&q=75" alt="Masque de nuit rose et tasse de thé" loading="lazy"><span class="photo-tag">Photo d'illustration</span></div>
           <div class="product-card-body">
             <div class="product-card-category">Cocooning</div>
             <h3 class="product-card-name">Masque de nuit en soie</h3>
             <p class="product-card-desc">Tout doux sur la peau, il fait le noir complet pour tes nuits et tes siestes.</p>
+            <div class="product-card-model">Modèle proposé : BeeVines, 100 % soie, lot de 2</div>
             <div class="product-card-footer">
               <div class="product-price">
                 <span class="product-price-original" style="text-decoration:none">Prix à jour sur Amazon</span>
@@ -1386,11 +1402,12 @@
           </div>
         </div>
         <div class="product-card" data-cat="cocooning">
-          <div class="product-card-img">🧣</div>
+          <div class="product-card-img"><img src="https://images.unsplash.com/photo-1674475760738-8c7af859f821?w=600&h=600&fit=crop&auto=format&q=75" alt="Plaid doux sur un canapé" loading="lazy"><span class="photo-tag">Photo d'illustration</span></div>
           <div class="product-card-body">
             <div class="product-card-category">Cocooning</div>
             <h3 class="product-card-name">Plaid sherpa très doux</h3>
             <p class="product-card-desc">L'indispensable de l'hiver : sur le canapé, au lit ou dans ton coin lecture.</p>
+            <div class="product-card-model">Modèle proposé : Bedsure sherpa, 150 × 200 cm</div>
             <div class="product-card-footer">
               <div class="product-price">
                 <span class="product-price-original" style="text-decoration:none">Prix à jour sur Amazon</span>
@@ -1402,11 +1419,12 @@
           </div>
         </div>
         <div class="product-card" data-cat="cocooning">
-          <div class="product-card-img">🧦</div>
+          <div class="product-card-img"><img src="https://images.unsplash.com/photo-1641399050826-9616c90427bb?w=600&h=600&fit=crop&auto=format&q=75" alt="Pile de chaussettes chaudes" loading="lazy"><span class="photo-tag">Photo d'illustration</span></div>
           <div class="product-card-body">
             <div class="product-card-category">Cocooning</div>
             <h3 class="product-card-name">Chaussettes chaudes en laine</h3>
             <p class="product-card-desc">Épaisses et moelleuses, pour les soirées où tu as froid aux pieds.</p>
+            <div class="product-card-model">Modèle proposé : Jarseen, laine thermique, 2 paires</div>
             <div class="product-card-footer">
               <div class="product-price">
                 <span class="product-price-original" style="text-decoration:none">Prix à jour sur Amazon</span>
@@ -1418,11 +1436,12 @@
           </div>
         </div>
         <div class="product-card" data-cat="cocooning">
-          <div class="product-card-img">🫖</div>
+          <div class="product-card-img"><img src="https://images.unsplash.com/photo-1773747608435-0fa80d11a32f?w=600&h=600&fit=crop&auto=format&q=75" alt="Bouillotte avec housse tricotée" loading="lazy"><span class="photo-tag">Photo d'illustration</span></div>
           <div class="product-card-body">
             <div class="product-card-category">Cocooning</div>
             <h3 class="product-card-name">Bouillotte avec housse douce</h3>
             <p class="product-card-desc">Une housse toute douce avec une poche pour glisser les mains. Le réconfort à l'ancienne.</p>
+            <div class="product-card-model">Modèle proposé : housse douce avec poche kangourou</div>
             <div class="product-card-footer">
               <div class="product-price">
                 <span class="product-price-original" style="text-decoration:none">Prix à jour sur Amazon</span>
@@ -1434,11 +1453,12 @@
           </div>
         </div>
         <div class="product-card" data-cat="cocooning">
-          <div class="product-card-img">🧥</div>
+          <div class="product-card-img"><img src="https://images.unsplash.com/photo-1770294759101-fae1377d4d34?w=600&h=600&fit=crop&auto=format&q=75" alt="Femme en robe de chambre blanche" loading="lazy"><span class="photo-tag">Photo d'illustration</span></div>
           <div class="product-card-body">
             <div class="product-card-category">Cocooning</div>
             <h3 class="product-card-name">Robe de chambre polaire à capuche</h3>
             <p class="product-card-desc">Longue, chaude et douillette : on l'enfile en rentrant et on ne la quitte plus.</p>
+            <div class="product-card-model">Modèle proposé : NY Threads, polaire à capuche</div>
             <div class="product-card-footer">
               <div class="product-price">
                 <span class="product-price-original" style="text-decoration:none">Prix à jour sur Amazon</span>
@@ -1450,11 +1470,12 @@
           </div>
         </div>
         <div class="product-card" data-cat="parfum">
-          <div class="product-card-img">🌿</div>
+          <div class="product-card-img"><img src="https://images.unsplash.com/photo-1750433101188-8284e112d250?w=600&h=600&fit=crop&auto=format&q=75" alt="Diffuseur à bâtonnets" loading="lazy"><span class="photo-tag">Photo d'illustration</span></div>
           <div class="product-card-body">
             <div class="product-card-category">Parfums</div>
             <h3 class="product-card-name">Diffuseur à bâtonnets « linge propre »</h3>
             <p class="product-card-desc">Sans flamme ni électricité, il parfume la pièce en continu. Simple et joli.</p>
+            <div class="product-card-model">Modèle proposé : Cocorrína « Clean linen », 200 ml</div>
             <div class="product-card-footer">
               <div class="product-price">
                 <span class="product-price-original" style="text-decoration:none">Prix à jour sur Amazon</span>
@@ -1466,11 +1487,12 @@
           </div>
         </div>
         <div class="product-card" data-cat="parfum">
-          <div class="product-card-img">🕯️</div>
+          <div class="product-card-img"><img src="https://images.unsplash.com/photo-1612293905607-b003de9e54fb?w=600&h=600&fit=crop&auto=format&q=75" alt="Bougie parfumée en pot" loading="lazy"><span class="photo-tag">Photo d'illustration</span></div>
           <div class="product-card-body">
             <div class="product-card-category">Parfums</div>
             <h3 class="product-card-name">Bougies parfumées Yankee Candle</h3>
             <p class="product-card-desc">Un trio de petites bougies parfumées, parfait pour s'offrir ou pour offrir.</p>
+            <div class="product-card-model">Modèle proposé : Yankee Candle, set de 3 votives</div>
             <div class="product-card-footer">
               <div class="product-price">
                 <span class="product-price-original" style="text-decoration:none">Prix à jour sur Amazon</span>
@@ -1482,11 +1504,12 @@
           </div>
         </div>
         <div class="product-card" data-cat="lumiere">
-          <div class="product-card-img">💡</div>
+          <div class="product-card-img"><img src="https://images.unsplash.com/photo-1611668190893-5131136df0a8?w=600&h=600&fit=crop&auto=format&q=75" alt="Lampe de chevet allumée" loading="lazy"><span class="photo-tag">Photo d'illustration</span></div>
           <div class="product-card-body">
             <div class="product-card-category">Lumières</div>
             <h3 class="product-card-name">Lampe de chevet tactile</h3>
             <p class="product-card-desc">Une lumière chaude que tu règles d'un simple toucher, pour finir la journée tout en douceur.</p>
+            <div class="product-card-model">Modèle proposé : lampe tactile, intensité réglable</div>
             <div class="product-card-footer">
               <div class="product-price">
                 <span class="product-price-original" style="text-decoration:none">Prix à jour sur Amazon</span>
@@ -1498,11 +1521,12 @@
           </div>
         </div>
         <div class="product-card" data-cat="lumiere">
-          <div class="product-card-img">✨</div>
+          <div class="product-card-img"><img src="https://images.unsplash.com/photo-1744918712163-64993d95d6be?w=600&h=600&fit=crop&auto=format&q=75" alt="Petites bougies lumineuses dans la pénombre" loading="lazy"><span class="photo-tag">Photo d'illustration</span></div>
           <div class="product-card-body">
             <div class="product-card-category">Lumières</div>
             <h3 class="product-card-name">Bougies LED sans flamme (lot de 24)</h3>
             <p class="product-card-desc">L'ambiance des bougies sans risque de brûlure, idéal avec des enfants ou des animaux.</p>
+            <div class="product-card-model">Modèle proposé : lot de 24 chauffe-plats LED à piles</div>
             <div class="product-card-footer">
               <div class="product-price">
                 <span class="product-price-original" style="text-decoration:none">Prix à jour sur Amazon</span>
@@ -1514,11 +1538,12 @@
           </div>
         </div>
         <div class="product-card" data-cat="lumiere">
-          <div class="product-card-img">🌅</div>
+          <div class="product-card-img"><img src="https://images.unsplash.com/photo-1708232981795-2baec1d6687b?w=600&h=600&fit=crop&auto=format&q=75" alt="Lampe à lumière orangée" loading="lazy"><span class="photo-tag">Photo d'illustration</span></div>
           <div class="product-card-body">
             <div class="product-card-category">Lumières</div>
             <h3 class="product-card-name">Lampe « coucher de soleil »</h3>
             <p class="product-card-desc">Elle projette un halo orangé sur le mur : effet chaleureux garanti dans la chambre.</p>
+            <div class="product-card-model">Modèle proposé : lampe « sunset » USB, halo orangé</div>
             <div class="product-card-footer">
               <div class="product-price">
                 <span class="product-price-original" style="text-decoration:none">Prix à jour sur Amazon</span>
@@ -1530,11 +1555,12 @@
           </div>
         </div>
         <div class="product-card" data-cat="maison">
-          <div class="product-card-img">🗂️</div>
+          <div class="product-card-img"><img src="https://images.unsplash.com/photo-1678108040468-0cc9addd984d?w=600&h=600&fit=crop&auto=format&q=75" alt="Tiroir bien rangé avec compartiments" loading="lazy"><span class="photo-tag">Photo d'illustration</span></div>
           <div class="product-card-body">
             <div class="product-card-category">Maison zen</div>
             <h3 class="product-card-name">Organiseur de tiroirs</h3>
             <p class="product-card-desc">Des compartiments modulables pour retrouver tout d'un coup d'œil.</p>
+            <div class="product-card-model">Modèle proposé : Vtopmart, 25 compartiments, 4 tailles</div>
             <div class="product-card-footer">
               <div class="product-price">
                 <span class="product-price-original" style="text-decoration:none">Prix à jour sur Amazon</span>
@@ -1546,11 +1572,12 @@
           </div>
         </div>
         <div class="product-card" data-cat="maison">
-          <div class="product-card-img">🧺</div>
+          <div class="product-card-img"><img src="https://images.unsplash.com/photo-1757087824089-bdb33ecc3439?w=600&h=600&fit=crop&auto=format&q=75" alt="Panier de rangement posé dans une armoire" loading="lazy"><span class="photo-tag">Photo d'illustration</span></div>
           <div class="product-card-body">
             <div class="product-card-category">Maison zen</div>
             <h3 class="product-card-name">Paniers de rangement en tissu</h3>
             <p class="product-card-desc">Le désordre disparaît en 5 minutes, et c'est joli en plus.</p>
+            <div class="product-card-model">Modèle proposé : Amazon Basics, lot de 6 cubes en tissu</div>
             <div class="product-card-footer">
               <div class="product-price">
                 <span class="product-price-original" style="text-decoration:none">Prix à jour sur Amazon</span>
@@ -1610,9 +1637,9 @@
         </div>
 
         <div class="ritual-visual">
-          <div class="ritual-img-card">🛁</div>
-          <div class="ritual-img-card">🕯️</div>
-          <div class="ritual-img-card">🌿</div>
+          <div class="ritual-img-card"><img src="https://images.unsplash.com/photo-1613068431228-8cb6a1e92573?w=800&auto=format&q=75" alt="Bougies et eucalyptus" loading="lazy"></div>
+          <div class="ritual-img-card"><img src="https://images.unsplash.com/photo-1750433101196-604c1741a012?w=500&auto=format&q=75" alt="Diffuseur à bâtonnets" loading="lazy"></div>
+          <div class="ritual-img-card"><img src="https://images.unsplash.com/photo-1600369672770-985fd30004eb?w=500&auto=format&q=75" alt="Plaids pliés" loading="lazy"></div>
         </div>
 
       </div>
@@ -1678,7 +1705,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p>© 2026 Sérénité. Ce site contient des liens affiliés. En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises, sans frais supplémentaires pour toi.</p>
+        <p>© 2026 Sérénité. Ce site contient des liens affiliés. En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises, sans frais supplémentaires pour toi. Photos d'illustration : Unsplash.</p>
         <div class="footer-legal">
           <a href="#">CGU</a>
           <a href="#">Confidentialité</a>
